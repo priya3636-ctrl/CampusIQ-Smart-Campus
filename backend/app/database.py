@@ -1,27 +1,31 @@
 import os
 
-try:
-    from dotenv import load_dotenv  # type: ignore[import-not-found]
-except ModuleNotFoundError:
-    def load_dotenv(*args, **kwargs):
-        return False
+from dotenv import load_dotenv
+from sqlalchemy import create_engine
+from sqlalchemy.orm import declarative_base, sessionmaker
 
-try:
-    from sqlalchemy import create_engine  # type: ignore[import-not-found]
-    from sqlalchemy.orm import declarative_base, sessionmaker  # type: ignore[import-not-found]
-except ModuleNotFoundError as exc:
-    raise RuntimeError(
-        "SQLAlchemy is required. Install it with 'pip install sqlalchemy psycopg2-binary python-dotenv'."
-    ) from exc
-
-# Load environment variables from backend/.env
+# Load local environment variables
 load_dotenv()
 
-# PostgreSQL connection URL
+# Get PostgreSQL connection URL
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 if not DATABASE_URL:
-    raise ValueError("DATABASE_URL is missing from the .env file")
+    raise ValueError("DATABASE_URL environment variable is missing")
+
+# Use Psycopg 3 driver
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace(
+        "postgres://",
+        "postgresql+psycopg://",
+        1
+    )
+elif DATABASE_URL.startswith("postgresql://"):
+    DATABASE_URL = DATABASE_URL.replace(
+        "postgresql://",
+        "postgresql+psycopg://",
+        1
+    )
 
 # Create PostgreSQL engine
 engine = create_engine(

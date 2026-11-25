@@ -2,8 +2,7 @@
 // ==========================================
 // CAMPUSIQ - FRONTEND AND BACKEND CONNECTION
 // ==========================================
-
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "";
 
 // ==========================================
 // 1. LOAD DASHBOARD ANALYTICS

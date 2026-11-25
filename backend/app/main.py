@@ -1,4 +1,5 @@
-
+from pathlib import Path
+from fastapi.staticfiles import StaticFiles
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -36,13 +37,7 @@ app.include_router(campus_insights.router)
 app.include_router(chat.router)
 app.include_router(documents.router)
 
-@app.get("/")
-def home():
-    return {
-        "project": "CampusIQ",
-        "message": "Smart Campus Management Backend",
-        "status": "Running successfully"
-    }
+
 
 @app.get("/health")
 def health_check():
@@ -51,3 +46,11 @@ def health_check():
         "database": "initialized",
         "project": "CampusIQ"
     }
+# SERVE FRONTEND
+frontend_dir = Path(__file__).resolve().parents[2] / "frontend"
+
+app.mount(
+    "/",
+    StaticFiles(directory=str(frontend_dir), html=True),
+    name="frontend"
+)
