@@ -1,0 +1,34 @@
+# Python virtual environments
+backend/venv/
+backend/.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Node dependencies
+node_modules/
+
+# Local database files
+*.db
+*.sqlite3
+
+# Editor and operating system files
+.vscode/
+.DS_Store
+Thumbs.db
+# Frontend backup files
+frontend/*_backup.*
+frontend/*_before_*
+
+# Backend backup files
+backend/*_backup.*

@@ -1,0 +1,838 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusIQ | Smart Campus Management</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">C</div>
+            <div>
+                <h2>CampusIQ</h2>
+                <span>SMART CAMPUS AI</span>
+            </div>
+        </div>
+
+       
+<div class="workspace">
+    <span class="workspace-icon">
+        <svg viewBox="0 0 24 24">
+            <path d="M3 21V7l9-4 9 4v14M3 21h18M8 21v-7h8v7M7 9h2M15 9h2"/>
+        </svg>
+    </span>
+
+    <div class="sidebar-brand-text">
+        <strong>University Campus</strong>
+        <small>Administration</small>
+    </div>
+</div>
+
+<div class="menu-label">WORKSPACE</div>
+
+
+        <nav class="navigation">
+            <a href="#overview" class="nav-item active">
+                <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/></svg></span> Overview
+            </a>
+
+            <a href="#assistant" class="nav-item">
+                <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M19 16l1 2.5 2.5 1-2.5 1L19 23l-1-2.5-2.5-1 2.5-1 1-2.5z"/></svg></span> AI Assistant
+                <span class="new-tag">AI</span>
+            </a>
+
+            <a href="#feedback" class="nav-item">
+                <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 9 9 0 0 1-4-.9L3 21l1.9-5.5a9 9 0 0 1-.9-4A8.5 8.5 0 0 1 12.5 3H13a8.5 8.5 0 0 1 8 8v.5z"/><path d="M8 10h8M8 14h5"/></svg></span> Student Feedback
+            </a>
+
+            <a href="#maintenance" class="nav-item">
+                <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.5 6.5a5 5 0 0 0-6.6 6.6L3 18l3 3 4.9-4.9a5 5 0 0 0 6.6-6.6L14 13l-3-3 3.5-3.5z"/></svg></span> Maintenance
+                <span class="nav-count" id="maintenanceNavCount">0</span>
+            </a>
+
+            <a href="#resources" class="nav-item">
+                <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7l8-4 8 4-8 4-8-4z"/><path d="M4 12l8 4 8-4M4 17l8 4 8-4"/></svg></span> Resources
+            </a>
+
+            <a href="#energy" class="nav-item">
+                <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 10-13h-7l0-7z"/></svg></span> Energy Analytics
+            </a>
+
+            <a href="#schedule" class="nav-item">
+                <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M8 14h3M8 17h6"/></svg></span> Scheduling
+            </a>
+        </nav>
+
+        <div class="menu-label agent-label">INTELLIGENCE</div>
+
+        <nav class="navigation">
+            <a href="#agents" class="nav-item">
+                <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M10.5 7L6.5 16M13.5 7l4 9M7.5 18h9"/></svg></span> AI Agent Center
+                <span class="online-dot"></span>
+            </a>
+
+            <a href="#reports" class="nav-item">
+                <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span> Reports & Insights
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="help-card">
+                <div class="help-icon">?</div>
+                <strong>Need assistance?</strong>
+                <p>Our AI campus assistant is ready to help.</p>
+                <a href="#assistant">Open AI Assistant &rarr;</a>
+            </div>
+
+            <div class="profile">
+                <div class="avatar">AD</div>
+                <div class="profile-info">
+                    <strong>Admin User</strong>
+                    <small>Campus Administrator</small>
+                </div>
+                <span class="profile-menu" aria-label="Profile menu">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="5" r="1.5" fill="currentColor"/>
+        <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+        <circle cx="12" cy="19" r="1.5" fill="currentColor"/>
+    </svg>
+</span>
+            </div>
+
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content" id="overview">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div class="breadcrumb">
+                <span>Workspace</span>
+                <span>/</span>
+                <strong>Overview</strong>
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    All Systems Operational
+                </div>
+
+                <button class="icon-button" aria-label="Notifications">
+    <span class="campus-svg-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/>
+        </svg>
+    </span>
+    <span class="notification-dot"></span>
+</button>
+
+                <div class="top-avatar">AD</div>
+            </div>
+        </header>
+
+        
+      <!-- LIVE MAINTENANCE KPI CARDS -->
+<section class="stats-grid">
+
+    <!-- TOTAL REQUESTS -->
+    <article class="stat-card">
+        <div class="stat-top">
+            <span>Total Requests</span>
+            <div class="stat-icon blue">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 4h16v16H4zM8 8h8M8 12h8M8 16h5"/>
+                </svg>
+            </div>
+        </div>
+
+        <h2 id="totalRequestsValue">--</h2>
+
+        <div class="stat-bottom">
+            <span>Campus maintenance</span>
+            <span>Live database</span>
+        </div>
+
+        <div class="mini-bars blue-bars">
+            <i style="height:35%"></i>
+            <i style="height:55%"></i>
+            <i style="height:45%"></i>
+            <i style="height:75%"></i>
+            <i style="height:60%"></i>
+            <i style="height:90%"></i>
+            <i style="height:100%"></i>
+        </div>
+    </article>
+
+    <!-- PENDING REQUESTS -->
+    <article class="stat-card">
+        <div class="stat-top">
+            <span>Pending Requests</span>
+            <div class="stat-icon orange">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M12 7v5l3 2"/>
+                </svg>
+            </div>
+        </div>
+
+        <h2 id="pendingRequestsValue">--</h2>
+
+        <div class="stat-bottom">
+            <span>Awaiting resolution</span>
+            <span>Live database</span>
+        </div>
+
+        <div class="mini-bars orange-bars">
+            <i style="height:65%"></i>
+            <i style="height:40%"></i>
+            <i style="height:70%"></i>
+            <i style="height:50%"></i>
+            <i style="height:85%"></i>
+            <i style="height:60%"></i>
+            <i style="height:95%"></i>
+        </div>
+    </article>
+
+    <!-- HIGH PRIORITY -->
+    <article class="stat-card">
+        <div class="stat-top">
+            <span>High Priority</span>
+            <div class="stat-icon purple">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 3 22 20H2L12 3zM12 9v5M12 17h.01"/>
+                </svg>
+            </div>
+        </div>
+
+        <h2 id="highPriorityValue">--</h2>
+
+        <div class="stat-bottom">
+            <span>Requires attention</span>
+            <span>Live database</span>
+        </div>
+
+        <div class="mini-bars purple-bars">
+            <i style="height:45%"></i>
+            <i style="height:60%"></i>
+            <i style="height:50%"></i>
+            <i style="height:75%"></i>
+            <i style="height:65%"></i>
+            <i style="height:85%"></i>
+            <i style="height:100%"></i>
+        </div>
+    </article>
+
+    <!-- REPORTED CATEGORIES -->
+    <article class="stat-card">
+        <div class="stat-top">
+            <span>Reported Categories</span>
+            <div class="stat-icon green">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 5h16v14H4zM4 10h16M9 5v14M15 5v14"/>
+                </svg>
+            </div>
+        </div>
+
+        <h2 id="categoryCountValue">--</h2>
+
+        <div class="stat-bottom">
+            <span>Issue categories</span>
+            <span>Live database</span>
+        </div>
+
+        <div class="mini-bars green-bars">
+            <i style="height:90%"></i>
+            <i style="height:70%"></i>
+            <i style="height:80%"></i>
+            <i style="height:65%"></i>
+            <i style="height:75%"></i>
+            <i style="height:55%"></i>
+            <i style="height:40%"></i>
+        </div>
+    </article>
+
+    <!-- IN PROGRESS -->
+    <article class="stat-card">
+        <div class="stat-top">
+            <span>In Progress</span>
+            <div class="stat-icon orange">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M12 7v5l3 2"/>
+                </svg>
+            </div>
+        </div>
+
+        <h2 id="inProgressRequestsValue">--</h2>
+
+        <div class="stat-bottom">
+            <span>Currently being handled</span>
+            <span>Live database</span>
+        </div>
+    </article>
+
+    <!-- RESOLVED -->
+    <article class="stat-card">
+        <div class="stat-top">
+            <span>Resolved</span>
+            <div class="stat-icon green">
+                <svg viewBox="0 0 24 24">
+                    <path d="m5 12 5 5L20 7"/>
+                </svg>
+            </div>
+        </div>
+
+        <h2 id="resolvedRequestsValue">--</h2>
+
+        <div class="stat-bottom">
+            <span>Successfully completed</span>
+            <span>Live database</span>
+        </div>
+    </article>
+
+</section>
+        <!-- ANALYTICS SECTION -->
+        <section class="analytics-grid">
+
+            <!-- CAMPUS PERFORMANCE -->
+            <article class="panel performance-panel">
+
+                <div class="panel-heading">
+                    <div>
+                        <h3>Campus Performance</h3>
+                        <p>Overview of campus operations</p>
+                    </div>
+                </div>
+
+                <div class="category-analytics-heading">
+                    <h4>Maintenance Requests by Category</h4>
+                    <span>Live Database Data</span>
+                </div>
+
+                <div id="categoryBreakdown">
+                    <p>Loading category analytics...</p>
+                </div>
+
+            </article>
+
+            <!-- AI AGENT CENTER -->
+            <article class="panel agents-panel" id="agents">
+
+                <div class="panel-heading">
+                    <div>
+                        <h3>AI Agent Center</h3>
+                        <p>Live agent monitoring</p>
+                    </div>
+
+                    <span class="live-badge">
+                        <i></i> SYSTEM ACTIVE
+                    </span>
+                </div>
+
+                <div class="agent-list">
+
+                    <div class="agent-item">
+                        <div class="agent-symbol blue"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4V5zM8 9h8M8 12h5"/></svg></div>
+                        <div class="agent-details">
+                            <strong>Student Feedback Agent</strong>
+                            <small>Analyzing student feedback</small>
+                        </div>
+                        <span class="agent-state">Planned</span>
+                    </div>
+
+                    <div class="agent-item">
+                        <div class="agent-symbol orange"><svg viewBox="0 0 24 24"><path d="M14 6a5 5 0 0 0-6 6l-5 5 4 4 5-5a5 5 0 0 0 6-6l-4 4-4-4 4-4z"/></svg></div>
+                        <div class="agent-details">
+                            <strong>Maintenance Agent</strong>
+                            <small>AI complaint prioritization and classification</small>
+                        </div>
+                        <span class="agent-state">Active</span>
+                    </div>
+
+                    <div class="agent-item">
+                        <div class="agent-symbol purple"><svg viewBox="0 0 24 24"><path d="m4 7 8-4 8 4-8 4-8-4zM4 12l8 4 8-4M4 17l8 4 8-4"/></svg></div>
+                        <div class="agent-details">
+                            <strong>Resource Agent</strong>
+                            <small>Checking availability</small>
+                        </div>
+                        <span class="agent-state">Planned</span>
+                    </div>
+
+                    <div class="agent-item">
+                        <div class="agent-symbol green"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 10-13h-7l0-7z"/></svg></div>
+                        <div class="agent-details">
+                            <strong>Energy Analysis Agent</strong>
+                            <small>Analyzing energy patterns</small>
+                        </div>
+                        <span class="agent-state">Planned</span>
+                    </div>
+
+                    <div class="agent-item">
+                        <div class="agent-symbol pink"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></div>
+                        <div class="agent-details">
+                            <strong>Scheduling Agent</strong>
+                            <small>Schedule optimization</small>
+                        </div>
+                        <span class="agent-state">Planned</span>
+                    </div>
+
+                    <div class="agent-item">
+                        <div class="agent-symbol dark"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 13a7 7 0 0 0 0-2l2-1-2-4-2 1a7 7 0 0 0-2-1l-.5-2h-5L9 6a7 7 0 0 0-2 1L5 6l-2 4 2 1a7 7 0 0 0 0 2l-2 1 2 4 2-1a7 7 0 0 0 2 1l.5 2h5L15 18a7 7 0 0 0 2-1l2 1 2-4-2-1z"/></svg></div>
+                        <div class="agent-details">
+                            <strong>Administration Agent</strong>
+                            <small>Generating reports</small>
+                        </div>
+                        <span class="agent-state">Planned</span>
+                    </div>
+
+                </div>
+
+                <a href="#agents" class="view-all">View Agent Activity &rarr;</a>
+
+            </article>
+        </section>
+
+        <!-- BOTTOM SECTION -->
+        <section class="bottom-grid">
+
+            <!-- MAINTENANCE MANAGEMENT -->
+            <article class="panel requests-panel" id="maintenance">
+
+                <div class="panel-header">
+                    <div>
+                        <h2>Maintenance Management</h2>
+                        <p>Submit and manage campus maintenance requests.</p>
+                    </div>
+
+                    <span id="maintenanceCount">0 Requests</span>
+                </div>
+
+                <!-- FORM + PRIORITY GUIDE -->
+                <div class="maintenance-top-grid">
+
+                    <!-- NEW REQUEST FORM -->
+                    <div class="maintenance-form-container">
+
+                        <h3>Submit New Request</h3>
+
+                        <form id="maintenanceForm">
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+                                    <label for="issueTitle">Issue Title</label>
+                                    <input
+                                        type="text"
+                                        id="issueTitle"
+                                        placeholder="Example: Projector not working"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="issueLocation">Location</label>
+                                    <input
+                                        type="text"
+                                        id="issueLocation"
+                                        placeholder="Example: Computer Lab 1"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="issueCategory">Category</label>
+                                    <select id="issueCategory" required>
+                                        <option value="">Select Category</option>
+                                        <option value="Electrical">Electrical</option>
+                                        <option value="Plumbing">Plumbing</option>
+                                        <option value="IT Equipment">IT Equipment</option>
+                                        <option value="Furniture">Furniture</option>
+                                        <option value="Cleaning">Cleaning</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="issuePriority">Your Estimated Priority</label>
+                                    <select id="issuePriority" required>
+                                        <option value="">Select Priority</option>
+                                        <option value="Low">Low</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="High">High</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="issueDescription">Description</label>
+                                <textarea
+                                    id="issueDescription"
+                                    rows="3"
+                                    placeholder="Describe the maintenance issue..."
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <!-- AI ANALYSIS PANEL -->
+                            <div id="aiAnalysisPanel" class="ai-analysis-panel" hidden>
+
+                                <div class="ai-analysis-header">
+                                    <h3>CampusIQ AI Analysis</h3>
+                                    <span class="ai-status">Analysis Complete</span>
+                                </div>
+
+                                <div class="ai-analysis-grid">
+
+                                    <div class="ai-result-item">
+                                        <span>Recommended Priority</span>
+                                        <strong id="aiPriority">--</strong>
+                                    </div>
+
+                                    <div class="ai-result-item">
+                                        <span>Assigned Department</span>
+                                        <strong id="aiDepartment">--</strong>
+                                    </div>
+
+                                </div>
+
+                                <div class="ai-reason">
+                                    <span>AI Recommendation</span>
+                                    <p id="aiReason">--</p>
+                                </div>
+
+                                <div class="ai-actions">
+
+                                    <button
+    type="button"
+    id="confirmAIRequest"
+    class="primary-btn"
+    disabled
+>
+    Confirm & Submit
+</button>
+
+                                    <button
+                                        type="button"
+                                        id="cancelAIRequest"
+                                        class="secondary-btn"
+                                    >
+                                        Cancel
+                                    </button>
+
+                                </div>
+                            </div>
+
+                            <button
+                                type="submit"
+                                id="analyzeRequestBtn"
+                                class="primary-btn"
+                            >
+                                Analyze with CampusIQ AI
+                            </button>
+
+                        </form>
+                    </div>
+
+                    <!-- PRIORITY GUIDE -->
+                    <aside class="priority-guide">
+
+                        <div class="priority-guide-header">
+                            <h3>CampusIQ Priority Guide</h3>
+                            <span>AI Classification</span>
+                        </div>
+
+                        <div class="priority-guide-item low-guide">
+                            <span class="priority-dot"></span>
+                            <div>
+                                <strong>Low Priority</strong>
+                                <p>Minor issues that require routine maintenance.</p>
+                            </div>
+                        </div>
+
+                        <div class="priority-guide-item medium-guide">
+                            <span class="priority-dot"></span>
+                            <div>
+                                <strong>Medium Priority</strong>
+                                <p>Issues that need attention but do not seriously disrupt campus activities.</p>
+                            </div>
+                        </div>
+
+                        <div class="priority-guide-item high-guide">
+                            <span class="priority-dot"></span>
+                            <div>
+                                <strong>High Priority</strong>
+                                <p>Issues that significantly affect campus operations and require prompt attention.</p>
+                            </div>
+                        </div>
+
+                        <div class="priority-guide-footer">
+                            <span><svg viewBox="0 0 24 24"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2z"/></svg></span>
+                            AI analyzes complaints and recommends their priority.
+                        </div>
+
+                    </aside>
+
+                </div>
+
+                <!-- MAINTENANCE REQUESTS TABLE -->
+                <div class="maintenance-table-container">
+
+                    <h3>Maintenance Requests</h3>
+
+                    <div class="table-responsive">
+
+                        <table class="requests-table">
+
+                            <thead>
+                                <tr>
+                                    <th>Request ID</th>
+                                    <th>Issue</th>
+                                    <th>Location</th>
+                                    <th>Category</th>
+                                    <th>Priority</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="maintenanceTableBody">
+                                <!-- Requests displayed using JavaScript -->
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                </div>
+
+            </article>
+
+
+
+<!-- CAMPUS INSIGHTS -->
+<article class="panel insights-panel" id="reports">
+
+    <div class="panel-heading">
+        <div>
+            <h3>AI Campus Insights</h3>
+            <p>Live recommendations from your six AI agents</p>
+        </div>
+        <span class="insight-icon">
+            <svg viewBox="0 0 24 24">
+                <path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2z"/>
+            </svg>
+        </span>
+    </div>
+
+    <div class="campus-analysis-controls">
+
+        <h4>Campus Information</h4>
+        <p>Enter your campus details to generate AI-powered insights.</p>
+
+        <div class="campus-input-grid">
+
+            <div class="campus-input-group" id="feedback">
+                <label for="feedbackInput">Student Feedback</label>
+                <textarea
+                    id="feedbackInput"
+                    placeholder="Example: Students need better Wi-Fi and more library computers."
+                ></textarea>
+            </div>
+
+            <div class="campus-input-group" id="resources">
+                <label for="resourcesInput">Resource Information</label>
+                <textarea
+                    id="resourcesInput"
+                    placeholder="Example: The campus has 30 computers, but only 22 are working."
+                ></textarea>
+            </div>
+
+            <div class="campus-input-group" id="energy">
+                <label for="energyInput">Energy Consumption</label>
+                <textarea
+                    id="energyInput"
+                    placeholder="Example: Electricity consumption increased from 12000 kWh to 16000 kWh."
+                ></textarea>
+            </div>
+
+            <div class="campus-input-group" id="schedule">
+                <label for="scheduleInput">Scheduling Information</label>
+                <textarea
+                    id="scheduleInput"
+                    placeholder="Example: CSE and ECE are assigned to Computer Lab 1 at 10 AM on Monday."
+                ></textarea>
+            </div>
+
+            <div class="campus-input-group" id="campus-general">
+                <label for="campusDataInput">General Campus Information</label>
+                <textarea
+                    id="campusDataInput"
+                    placeholder="Enter general campus problems, complaints and observations."
+                ></textarea>
+            </div>
+
+            <div class="campus-input-group">
+                <label for="maintenanceTitleInput">Maintenance Issue Title</label>
+                <input
+                    id="maintenanceTitleInput"
+                    type="text"
+                    placeholder="Example: Projector not working"
+                >
+            </div>
+
+            <div class="campus-input-group">
+                <label for="maintenanceDescriptionInput">Maintenance Description</label>
+                <textarea
+                    id="maintenanceDescriptionInput"
+                    placeholder="Describe the maintenance issue and its location."
+                ></textarea>
+            </div>
+
+            <div class="campus-input-group">
+                <label for="maintenanceCategoryInput">Maintenance Category</label>
+                <select id="maintenanceCategoryInput">
+                    <option value="General">General</option>
+                    <option value="Electrical">Electrical</option>
+                    <option value="Plumbing">Plumbing</option>
+                    <option value="IT">IT</option>
+                    <option value="IT Equipment">IT Equipment</option>
+                    <option value="Furniture">Furniture</option>
+                    <option value="Cleaning">Cleaning</option>
+                </select>
+            </div>
+
+        </div>
+
+        <!-- RUN CAMPUS ANALYSIS -->
+        <button
+            type="button"
+            id="runCampusAnalysisBtn"
+            class="primary-btn"
+        >
+            <span class="campus-svg-icon">
+                <svg
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M20 7v5h-5"/>
+                    <path d="M4 17v-5h5"/>
+                    <path d="M5.5 9a7 7 0 0 1 12-2L20 12"/>
+                    <path d="M18.5 15a7 7 0 0 1-12 2L4 12"/>
+                </svg>
+            </span>
+            Run Campus Analysis
+        </button>
+
+        <p id="campusAnalysisStatus" role="status">
+            Enter campus information and run the analysis.
+        </p>
+
+    </div>
+
+    <!-- AI RESULTS -->
+    <div id="campusInsightsResults"></div>
+
+<div class="campus-report-actions">
+    <button
+        type="button"
+        id="downloadCampusReportBtn"
+        disabled
+    >
+        Download Campus Report
+    </button>
+</div>
+
+</article>
+
+
+<!-- CAMPUSIQ AI ASSISTANT -->
+        <section class="panel ai-chat-panel" id="assistant">
+
+            <div class="panel-heading">
+                <div>
+                    <h3>CampusIQ AI Assistant</h3>
+                    <p>Your intelligent campus management assistant</p>
+                </div>
+                <span class="insight-icon"><svg viewBox="0 0 24 24"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2z"/></svg></span>
+            </div>
+
+            <div class="chat-status">
+                <span class="status-dot"></span>
+                Local AI Assistant
+                <span class="chat-model">Qwen 2.5</span>
+            </div>
+
+            <div class="chat-messages" id="chatMessages" aria-live="polite">
+                <div class="chat-message assistant-message">
+                    <div class="chat-avatar">AI</div>
+                    <div class="chat-bubble">
+                        <strong>CampusIQ Assistant</strong>
+                        <p>Hello! I am your CampusIQ AI Assistant. Ask me about campus management, maintenance, student feedback, resources, energy or scheduling.</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="chat-input-form" id="chatForm">
+                <input
+                    type="text"
+                    id="chatInput"
+                    placeholder="Ask something about your campus..."
+                    maxlength="4000"
+                    autocomplete="off"
+                    required
+                >
+
+                <button type="submit" id="chatSendBtn">
+                    Send
+                </button>
+            </form>
+
+            <p class="chat-footer">
+                Powered by your locally running Qwen 2.5 AI model
+            </p>
+
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <span>&copy; 2026 CampusIQ. Smart Campus Intelligence Platform.</span>
+            <span>Powered by Multi-Agent AI Architecture &#10022;</span>
+        </footer>
+
+    </main>
+</div>
+
+<script src="./script.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
