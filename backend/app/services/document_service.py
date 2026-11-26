@@ -1,25 +1,14 @@
 
-from functools import lru_cache
 from time import perf_counter
 
-from langchain_ollama import OllamaEmbeddings
 from sqlalchemy.orm import Session
 
 from app.models import CampusDocument
+from app.services.embeddings_service import get_embeddings
 
 
-# Local embedding model
-EMBEDDING_MODEL = "all-minilm"
-
-# Chunk configuration
 CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 150
-
-
-@lru_cache(maxsize=1)
-def get_embeddings():
-    """Reuse one embedding client instead of creating it for every upload."""
-    return OllamaEmbeddings(model=EMBEDDING_MODEL)
 
 
 def split_text(text: str) -> list[str]:
@@ -60,7 +49,6 @@ def ingest_document(
     source: str,
     content: str
 ) -> dict:
-    """Generate embeddings and save document chunks in PostgreSQL."""
 
     total_start = perf_counter()
 
@@ -80,14 +68,12 @@ def ingest_document(
 
     print(f"Document chunks created: {len(chunks)}")
 
-    # Generate embeddings
     embedding_start = perf_counter()
 
     embeddings = get_embeddings()
     vectors = embeddings.embed_documents(chunks)
 
     embedding_time = perf_counter() - embedding_start
-
     print(f"Embedding generation time: {embedding_time:.2f} seconds")
 
     if len(vectors) != len(chunks):
@@ -112,7 +98,6 @@ def ingest_document(
             )
         )
 
-    # Save to database
     database_start = perf_counter()
 
     try:

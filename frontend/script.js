@@ -1183,8 +1183,7 @@ async function sendChatMessage(event) {
 
         appendChatMessage(
             "assistant",
-            "Unable to connect to the AI Assistant. Please check that the backend and Ollama are running, then try again.",
-            "chat-error"
+            "Unable to connect to the AI Assistant. Please check the hosted AI services and try again."
         );
 
     } finally {

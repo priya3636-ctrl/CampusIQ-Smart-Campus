@@ -1,8 +1,8 @@
+
 from sqlalchemy import text
 from sqlalchemy.orm import Session
-from langchain_ollama import OllamaEmbeddings
 
-EMBEDDING_MODEL = "all-minilm"
+from app.services.embeddings_service import get_embeddings
 
 
 def retrieve_documents(
@@ -14,8 +14,7 @@ def retrieve_documents(
     if not question.strip():
         return []
 
-    embeddings = OllamaEmbeddings(model=EMBEDDING_MODEL)
-
+    embeddings = get_embeddings()
     query_vector = embeddings.embed_query(question)
 
     sql = text("""
