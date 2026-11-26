@@ -49,9 +49,14 @@ def chat_with_assistant(request: ChatRequest):
             detail="Please enter a message."
         )
 
+
     try:
+        current_stage = "checking Groq API key"
+
         if not os.getenv("GROQ_API_KEY"):
             raise ValueError("GROQ_API_KEY is not configured.")
+
+        current_stage = "retrieving campus documents"
 
         with SessionLocal() as db:
             retrieved_documents = retrieve_documents(db, message)
@@ -94,10 +99,14 @@ def chat_with_assistant(request: ChatRequest):
             You may still answer general campus-management questions.
             """
 
+        current_stage = "connecting to Groq"
+
         llm = ChatGroq(
             model=MODEL_NAME,
             temperature=0.2
         )
+
+        current_stage = "generating AI response"
 
         messages = [
             SystemMessage(
@@ -133,8 +142,13 @@ def chat_with_assistant(request: ChatRequest):
             status="success"
         )
 
+
     except Exception as error:
-        print(f"CampusIQ RAG Chat Error: {error}")
+
+        print(
+            f"CampusIQ Error at {current_stage}: "
+            f"{type(error).__name__}: {error}"
+        )
 
         raise HTTPException(
             status_code=503,
