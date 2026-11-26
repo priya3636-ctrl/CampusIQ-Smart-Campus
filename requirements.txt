@@ -1,1 +1,10 @@
--r backend/requirements.txt
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg[binary]
+pgvector
+python-dotenv
+langgraph
+langchain
+langchain-ollama
+python-multipart
