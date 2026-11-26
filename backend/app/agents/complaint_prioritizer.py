@@ -1,20 +1,14 @@
 
-import importlib
 import json
 
 
-# Optional dependency: keep prioritization usable when LangChain/Ollama is not installed.
-try:
-    ChatOllama = getattr(importlib.import_module("langchain_ollama"), "ChatOllama")
-except (ImportError, AttributeError):
-    ChatOllama = None
+from app.services.llm_service import get_groq_llm
 
 
 # ==========================================
 # CAMPUSIQ - AI COMPLAINT PRIORITIZER
 # ==========================================
 
-MODEL_NAME = "qwen2.5:0.5b"
 
 DEPARTMENT_MAPPING = {
     "Electrical": "Electrical Department",
@@ -56,7 +50,7 @@ MEDIUM_KEYWORDS = [
 
 
 def fallback_analysis(title, description, category):
-    """Rule-based fallback if the local AI is unavailable."""
+    """Rule-based fallback if the hosted AI service is unavailable."""
 
     complaint_text = f"{title} {description}".lower()
 
@@ -91,7 +85,7 @@ def fallback_analysis(title, description, category):
 
 def prioritize_complaint(title: str, description: str, category: str):
     """
-    Analyze a maintenance complaint using local Ollama AI.
+    Analyze a maintenance complaint using the hosted Groq AI service.
     Critical safety indicators always take precedence.
     """
 
@@ -114,10 +108,7 @@ def prioritize_complaint(title: str, description: str, category: str):
 
     # 2. Initialize local language model
     try:
-        llm = ChatOllama(
-            model=MODEL_NAME,
-            temperature=0
-        )
+        llm = get_groq_llm(temperature=0.0)
 
         # 3. Prepare structured AI prompt
         prompt = f"""
@@ -149,11 +140,22 @@ Return exactly these JSON keys:
 Do not include Markdown or text outside the JSON.
 """
 
-        # 4. Ask the local AI model
+        # 4. Ask the hosted AI model
         response = llm.invoke(prompt)
 
-        # 5. Parse and validate AI response
-        result = json.loads(response.content)
+        # 5. Parse and validate AI response, tolerating JSON code fences.
+        raw_response = str(response.content).strip()
+        if raw_response.startswith("```"):
+            raw_response = raw_response.strip("`")
+            if raw_response.lower().startswith("json"):
+                raw_response = raw_response[4:].strip()
+
+        json_start = raw_response.find("{")
+        json_end = raw_response.rfind("}")
+        if json_start < 0 or json_end <= json_start:
+            raise ValueError("AI response did not contain a JSON object.")
+
+        result = json.loads(raw_response[json_start:json_end + 1])
 
         valid_priorities = {"Low", "Medium", "High"}
 

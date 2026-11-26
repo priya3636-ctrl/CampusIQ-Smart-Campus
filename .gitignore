@@ -32,3 +32,5 @@ frontend/*_before_*
 
 # Backend backup files
 backend/*_backup.*
+.vercel
+.env*

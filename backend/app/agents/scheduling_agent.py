@@ -153,6 +153,37 @@ def analyze_schedule(schedule_data: str):
                     time=match.group("time"),
                     department=department
                 )
+                        # Format 4:
+        # CSE and ECE classes are both scheduled in
+        # Computer Lab 1 on Monday at 10 AM.
+
+        scheduled_pattern = re.compile(
+            rf"\b(?P<departments>[A-Z][A-Za-z0-9& -]*?)"
+            rf"\s+classes?\s+"
+            rf"(?:are\s+)?(?:both\s+)?scheduled\s+"
+            rf"(?:in|at)\s+"
+            rf"(?P<room>[\w][\w\s-]*?)\s+"
+            rf"on\s+(?P<day>{DAYS})\s+"
+            rf"at\s+(?P<time>\d{{1,2}}(?::\d{{2}})?\s*(?:am|pm))\b",
+            re.IGNORECASE
+        )
+
+        match = scheduled_pattern.search(sentence)
+
+        if match:
+            departments = re.split(
+                r"\s+and\s+",
+                match.group("departments"),
+                flags=re.IGNORECASE
+            )
+
+            for department in departments:
+                add_assignment(
+                    room=match.group("room"),
+                    day=match.group("day"),
+                    time=match.group("time"),
+                    department=department
+                )
 
     conflicts = []
     recommendations = []

@@ -1,6 +1,13 @@
+
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load backend/.env before importing application modules
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
+
 from fastapi.staticfiles import StaticFiles
 from fastapi import FastAPI
+from sqlalchemy import text
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.database import engine, Base
@@ -8,6 +15,9 @@ from app import models
 from app.routes import maintenance, campus_insights, chat, documents
 
 # DATABASE INITIALIZATION
+with engine.begin() as connection:
+    connection.execute(text("CREATE EXTENSION IF NOT EXISTS vector"))
+
 Base.metadata.create_all(bind=engine)
 
 # FASTAPI APPLICATION
@@ -37,8 +47,7 @@ app.include_router(campus_insights.router)
 app.include_router(chat.router)
 app.include_router(documents.router)
 
-
-
+# HEALTH CHECK
 @app.get("/health")
 def health_check():
     return {
@@ -46,6 +55,7 @@ def health_check():
         "database": "initialized",
         "project": "CampusIQ"
     }
+
 # SERVE FRONTEND
 frontend_dir = Path(__file__).resolve().parents[2] / "frontend"
 

@@ -4,7 +4,6 @@ from time import perf_counter
 from sqlalchemy.orm import Session
 
 from app.models import CampusDocument
-from app.services.embeddings_service import get_embeddings
 
 
 CHUNK_SIZE = 1000
@@ -68,33 +67,16 @@ def ingest_document(
 
     print(f"Document chunks created: {len(chunks)}")
 
-    embedding_start = perf_counter()
-
-    embeddings = get_embeddings()
-    vectors = embeddings.embed_documents(chunks)
-
-    embedding_time = perf_counter() - embedding_start
-    print(f"Embedding generation time: {embedding_time:.2f} seconds")
-
-    if len(vectors) != len(chunks):
-        raise ValueError("Embedding count does not match chunk count.")
-
     documents = []
 
-    for index, (chunk, vector) in enumerate(zip(chunks, vectors)):
-
-        if len(vector) != 384:
-            raise ValueError(
-                f"Expected 384 embedding dimensions, received {len(vector)}."
-            )
-
+    for index, chunk in enumerate(chunks):
         documents.append(
             CampusDocument(
                 title=title.strip(),
                 source=source.strip(),
                 content=chunk,
                 chunk_index=index,
-                embedding=vector
+                embedding=None
             )
         )
 

@@ -1,8 +1,7 @@
 
 import re
-from langchain_ollama import ChatOllama
+from app.services.llm_service import get_groq_llm
 
-MODEL_NAME = "qwen2.5:0.5b"
 
 
 def extract_positive_feedback(text):
@@ -234,12 +233,9 @@ def analyze_student_feedback(feedback: str):
             for issue in issues
         ])
 
-        # Use Ollama for the summary.
+        # Use the hosted Groq model for the summary.
         try:
-            llm = ChatOllama(
-                model=MODEL_NAME,
-                temperature=0
-            )
+            llm = get_groq_llm(temperature=0.0)
 
             prompt = f"""
 You are CampusIQ Student Feedback Agent.
@@ -262,7 +258,7 @@ Return only the summary text.
             status = "success"
 
         except Exception as llm_error:
-            print(f"Student Feedback LLM error: {llm_error}")
+            print(f"Student Feedback Groq error: {llm_error}")
             summary = feedback.strip()
             status = "fallback"
 

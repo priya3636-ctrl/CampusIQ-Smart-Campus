@@ -53,7 +53,7 @@ class CampusDocument(Base):
 
     chunk_index = Column(Integer, nullable=False, default=0)
 
-    embedding = Column(Vector(384), nullable=False)
+    embedding = Column(Vector(384), nullable=True)
 
     created_at = Column(
         DateTime(timezone=True),

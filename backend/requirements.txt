@@ -6,5 +6,5 @@ pgvector
 python-dotenv
 langgraph
 langchain
-langchain-ollama
 python-multipart
+langchain-groq
